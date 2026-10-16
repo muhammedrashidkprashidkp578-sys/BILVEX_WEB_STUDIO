@@ -1,0 +1,685 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>BILVEX WEB STUDIO | Digital Reality</title>
+<meta name="description" content="BILVEX WEB STUDIO creates modern websites for businesses and entrepreneurs.">
+
+<style>
+:root {
+    --green: #35e69a;
+    --bg: #050b08;
+    --text: #ffffff;
+    --muted: #b0c0b7;
+    --border: rgba(53,230,154,.25);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    color: var(--text);
+    background: var(--bg);
+    line-height: 1.7;
+    overflow-x: hidden;
+}
+
+#rain {
+    position: fixed;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    pointer-events: none;
+}
+
+.background-glow {
+    position: fixed;
+    inset: 0;
+    z-index: -2;
+    pointer-events: none;
+    background:
+        radial-gradient(ellipse at 50% 0%, #17452e 0%, transparent 55%),
+        radial-gradient(ellipse at 90% 80%, #0c281b 0%, transparent 50%),
+        #050b08;
+    animation: glow 12s ease-in-out infinite alternate;
+}
+
+@keyframes glow {
+    from { filter: brightness(.8); }
+    to { filter: brightness(1.3); }
+}
+
+.container {
+    width: min(1120px, 90%);
+    margin: auto;
+}
+
+header {
+    position: sticky;
+    top: 0;
+    z-index: 5;
+    background: rgba(5,11,8,.88);
+    backdrop-filter: blur(14px);
+    border-bottom: 1px solid var(--border);
+}
+
+.navbar {
+    min-height: 76px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+}
+
+.logo {
+    color: white;
+    font-size: 21px;
+    font-weight: 800;
+    letter-spacing: 1px;
+    text-decoration: none;
+    white-space: nowrap;
+}
+
+.logo span,
+.green {
+    color: var(--green);
+}
+
+nav {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+nav a {
+    color: white;
+    font-size: 14px;
+    text-decoration: none;
+    transition: color .3s;
+}
+
+nav a:hover {
+    color: var(--green);
+}
+
+.hero {
+    min-height: 670px;
+    display: flex;
+    align-items: center;
+    text-align: center;
+    padding: 90px 0;
+}
+
+.hero-content {
+    max-width: 850px;
+    margin: auto;
+}
+
+.badge {
+    display: inline-block;
+    padding: 7px 18px;
+    border: 1px solid var(--green);
+    border-radius: 30px;
+    color: var(--green);
+    font-size: 12px;
+    letter-spacing: 2px;
+    margin-bottom: 28px;
+    background: rgba(5,20,12,.45);
+}
+
+h1 {
+    font-size: clamp(43px, 7vw, 80px);
+    line-height: 1.12;
+    letter-spacing: -2px;
+    margin-bottom: 25px;
+}
+
+h1 span {
+    color: var(--green);
+    text-shadow: 0 0 30px rgba(53,230,154,.25);
+}
+
+.hero p {
+    max-width: 660px;
+    margin: 0 auto 32px;
+    color: var(--muted);
+    font-size: 17px;
+}
+
+.buttons {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 14px;
+}
+
+.btn {
+    display: inline-block;
+    padding: 13px 24px;
+    border-radius: 7px;
+    font-weight: bold;
+    text-decoration: none;
+    transition: .3s;
+}
+
+.btn-primary {
+    background: var(--green);
+    color: #04110a;
+}
+
+.btn-outline {
+    color: var(--green);
+    border: 1px solid var(--green);
+    background: rgba(5,11,8,.55);
+}
+
+.btn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 0 25px rgba(53,230,154,.2);
+}
+
+section {
+    padding: 82px 0;
+    scroll-margin-top: 85px;
+}
+
+.section-heading {
+    text-align: center;
+    margin-bottom: 42px;
+}
+
+.section-heading h2 {
+    font-size: clamp(30px, 4vw, 42px);
+    margin-bottom: 10px;
+}
+
+.section-heading p {
+    color: var(--muted);
+}
+
+.grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0,1fr));
+    gap: 22px;
+}
+
+.card {
+    padding: 27px;
+    background: rgba(10,24,16,.85);
+    border: 1px solid var(--border);
+    border-radius: 13px;
+    backdrop-filter: blur(8px);
+    transition: .3s;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+    border-color: var(--green);
+    box-shadow: 0 10px 30px rgba(0,0,0,.2);
+}
+
+.icon {
+    font-size: 32px;
+    margin-bottom: 14px;
+}
+
+.card h3 {
+    color: var(--green);
+    margin-bottom: 10px;
+}
+
+.card p {
+    color: var(--muted);
+    font-size: 14px;
+}
+
+.project-label {
+    color: var(--green);
+    font-size: 12px;
+    letter-spacing: 1px;
+    margin-bottom: 10px;
+}
+
+.price {
+    font-size: 30px;
+    font-weight: bold;
+    margin: 14px 0;
+}
+
+.price small {
+    color: var(--muted);
+    font-size: 13px;
+    font-weight: normal;
+}
+
+.price-card ul {
+    list-style: none;
+    color: var(--muted);
+    font-size: 14px;
+}
+
+.price-card li {
+    margin: 8px 0;
+}
+
+.price-card .btn {
+    display: block;
+    text-align: center;
+    margin-top: 24px;
+}
+
+.featured {
+    border-color: var(--green);
+}
+
+.note {
+    text-align: center;
+    color: var(--muted);
+    font-size: 13px;
+    margin-top: 24px;
+}
+
+.about {
+    background: rgba(6,18,11,.8);
+    border-top: 1px solid var(--border);
+    border-bottom: 1px solid var(--border);
+}
+
+.about-content {
+    max-width: 780px;
+    margin: auto;
+    text-align: center;
+}
+
+.about-content p {
+    color: var(--muted);
+    margin: 16px 0;
+}
+
+.contact {
+    text-align: center;
+}
+
+.contact p {
+    max-width: 600px;
+    margin: 15px auto 28px;
+    color: var(--muted);
+}
+
+footer {
+    border-top: 1px solid var(--border);
+    padding: 27px 0;
+    text-align: center;
+    color: var(--muted);
+    font-size: 13px;
+    background: rgba(5,11,8,.8);
+}
+
+footer span {
+    color: var(--green);
+}
+
+@media (max-width: 800px) {
+    .navbar {
+        flex-direction: column;
+        padding: 17px 0;
+    }
+
+    nav {
+        justify-content: center;
+        gap: 14px;
+    }
+
+    .grid {
+        grid-template-columns: repeat(2, minmax(0,1fr));
+    }
+}
+
+@media (max-width: 550px) {
+    .grid {
+        grid-template-columns: 1fr;
+    }
+
+    .hero {
+        min-height: 550px;
+        padding: 70px 0;
+    }
+
+    section {
+        padding: 62px 0;
+    }
+
+    .logo {
+        font-size: 17px;
+    }
+
+    nav a {
+        font-size: 12px;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after {
+        animation: none !important;
+        scroll-behavior: auto !important;
+        transition: none !important;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<div class="background-glow"></div>
+<canvas id="rain" aria-hidden="true"></canvas>
+
+<header>
+    <div class="container navbar">
+        <a class="logo" href="#home">BILVEX <span>WEB STUDIO</span></a>
+        <nav>
+            <a href="#home">Home</a>
+            <a href="#services">Services</a>
+            <a href="#projects">Projects</a>
+            <a href="#pricing">Pricing</a>
+            <a href="#about">About</a>
+            <a href="#contact">Contact</a>
+        </nav>
+    </div>
+</header>
+
+<main>
+
+<section class="hero" id="home">
+    <div class="container hero-content">
+        <div class="badge">YOUR DIGITAL GROWTH PARTNER</div>
+
+        <h1>Ideas Into<br><span>Digital Reality.</span></h1>
+
+        <p>
+            We build modern, responsive websites that help businesses grow
+            online, reach more customers and stand out from the crowd.
+        </p>
+
+        <div class="buttons">
+            <a class="btn btn-primary"
+               href="https://wa.me/919061200762?text=Hello%20BILVEX%20WEB%20STUDIO%2C%20I%20need%20a%20website.">
+                Start Your Project ↗
+            </a>
+
+            <a class="btn btn-outline" href="#services">
+                Explore Services
+            </a>
+        </div>
+    </div>
+</section>
+
+<section id="services">
+    <div class="container">
+        <div class="section-heading">
+            <h2>Our <span class="green">Services</span></h2>
+            <p>Digital solutions for your business.</p>
+        </div>
+
+        <div class="grid">
+            <div class="card">
+                <div class="icon">🌐</div>
+                <h3>Business Websites</h3>
+                <p>Professional websites that introduce your business and connect with customers.</p>
+            </div>
+
+            <div class="card">
+                <div class="icon">🛒</div>
+                <h3>E-commerce Stores</h3>
+                <p>Online storefronts to showcase products and help your business sell online.</p>
+            </div>
+
+            <div class="card">
+                <div class="icon">🎨</div>
+                <h3>Portfolio Websites</h3>
+                <p>Modern portfolios to showcase your skills and professional work.</p>
+            </div>
+
+            <div class="card">
+                <div class="icon">📱</div>
+                <h3>Responsive Design</h3>
+                <p>Mobile-friendly websites for phones, tablets and desktop screens.</p>
+            </div>
+
+            <div class="card">
+                <div class="icon">🚀</div>
+                <h3>Landing Pages</h3>
+                <p>Focused pages for businesses, products and promotions.</p>
+            </div>
+
+            <div class="card">
+                <div class="icon">⚙️</div>
+                <h3>Website Updates</h3>
+                <p>Updates and improvements for existing websites.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section id="projects">
+    <div class="container">
+        <div class="section-heading">
+            <h2>Demo <span class="green">Concepts</span></h2>
+            <p>Examples of website styles for different businesses.</p>
+        </div>
+
+        <div class="grid">
+            <div class="card">
+                <div class="project-label">CONCEPT 01</div>
+                <h3>Retail Store</h3>
+                <p>A product catalogue concept for a retail business.</p>
+            </div>
+
+            <div class="card">
+                <div class="project-label">CONCEPT 02</div>
+                <h3>Business Website</h3>
+                <p>A professional online presence for a service provider.</p>
+            </div>
+
+            <div class="card">
+                <div class="project-label">CONCEPT 03</div>
+                <h3>Online Store</h3>
+                <p>An online store concept for showcasing products.</p>
+            </div>
+        </div>
+
+        <p class="note">These are demo concepts, not completed client projects.</p>
+    </div>
+</section>
+
+<section id="pricing">
+    <div class="container">
+        <div class="section-heading">
+            <h2>Website <span class="green">Packages</span></h2>
+            <p>Sample starting prices. Final quotes depend on your requirements.</p>
+        </div>
+
+        <div class="grid">
+            <div class="card price-card">
+                <h3>Starter</h3>
+                <p>For individuals and small businesses.</p>
+                <div class="price">₹999 <small>starting</small></div>
+                <ul>
+                    <li>✓ Basic landing page</li>
+                    <li>✓ Mobile-friendly layout</li>
+                    <li>✓ Contact button</li>
+                </ul>
+                <a class="btn btn-outline"
+                   href="https://wa.me/919061200762?text=Hello%2C%20I%20am%20interested%20in%20the%20Starter%20package.">Enquire Now</a>
+            </div>
+
+            <div class="card price-card featured">
+                <h3>Business</h3>
+                <p>For businesses needing multiple sections.</p>
+                <div class="price">₹1,999 <small>starting</small></div>
+                <ul>
+                    <li>✓ Multi-section website</li>
+                    <li>✓ Responsive design</li>
+                    <li>✓ Services and contact</li>
+                </ul>
+                <a class="btn btn-primary"
+                   href="https://wa.me/919061200762?text=Hello%2C%20I%20am%20interested%20in%20the%20Business%20package.">Enquire Now</a>
+            </div>
+
+            <div class="card price-card">
+                <h3>E-commerce</h3>
+                <p>For businesses wanting to sell online.</p>
+                <div class="price">₹2,999 <small>starting</small></div>
+                <ul>
+                    <li>✓ Product showcase</li>
+                    <li>✓ Store layout</li>
+                    <li>✓ Contact and order options</li>
+                </ul>
+                <a class="btn btn-outline"
+                   href="https://wa.me/919061200762?text=Hello%2C%20I%20am%20interested%20in%20an%20e-commerce%20website.">Enquire Now</a>
+            </div>
+        </div>
+
+        <p class="note">
+            Domain, hosting, payment gateway and extra features may cost more.
+        </p>
+    </div>
+</section>
+
+<section class="about" id="about">
+    <div class="container about-content">
+        <div class="section-heading">
+            <h2>About <span class="green">BILVEX</span></h2>
+        </div>
+
+        <p>
+            BILVEX WEB STUDIO focuses on building modern and accessible
+            websites for businesses, entrepreneurs and individuals.
+        </p>
+
+        <p>
+            Our goal is to turn ideas into professional digital experiences
+            through thoughtful design and practical solutions.
+        </p>
+    </div>
+</section>
+
+<section id="contact">
+    <div class="container contact">
+        <div class="section-heading">
+            <h2>Let's Build Something <span class="green">Great.</span></h2>
+        </div>
+
+        <p>Have a project in mind? Contact us to discuss your requirements.</p>
+
+        <a class="btn btn-primary"
+           href="https://wa.me/919061200762?text=Hello%20BILVEX%20WEB%20STUDIO%2C%20I%20want%20to%20discuss%20a%20website%20project.">
+            Chat on WhatsApp ↗
+        </a>
+    </div>
+</section>
+
+</main>
+
+<footer>
+    <div class="container">
+        <p>© <span id="year"></span> BILVEX WEB STUDIO. All rights reserved.</p>
+        <p>Building a better digital future.</p>
+    </div>
+</footer>
+
+<script>
+document.getElementById("year").textContent = new Date().getFullYear();
+
+const canvas = document.getElementById("rain");
+const ctx = canvas.getContext("2d");
+
+let w, h, drops = [], flashes = [];
+let animationFrame;
+
+function resize() {
+    const dpr = Math.min(window.devicePixelRatio || 1, 2);
+    w = window.innerWidth;
+    h = window.innerHeight;
+
+    canvas.width = w * dpr;
+    canvas.height = h * dpr;
+    canvas.style.width = w + "px";
+    canvas.style.height = h + "px";
+    ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+
+    const count = Math.min(180, Math.floor(w * 0.22));
+
+    drops = Array.from({length: count}, () => ({
+        x: Math.random() * w,
+        y: Math.random() * h,
+        length: 10 + Math.random() * 19,
+        speed: 5 + Math.random() * 8,
+        opacity: 0.12 + Math.random() * 0.35,
+        drift: -1.5 - Math.random() * 1.5
+    }));
+}
+
+function drawRain() {
+    ctx.clearRect(0, 0, w, h);
+
+    for (const d of drops) {
+        ctx.beginPath();
+        ctx.moveTo(d.x, d.y);
+        ctx.lineTo(d.x + d.drift, d.y + d.length);
+        ctx.strokeStyle = `rgba(170,220,205,${d.opacity})`;
+        ctx.lineWidth = 1;
+        ctx.stroke();
+
+        d.x += d.drift;
+        d.y += d.speed;
+
+        if (d.y > h + d.length) {
+            d.y = -d.length;
+            d.x = Math.random() * w;
+        }
+
+        if (d.x < -20) d.x = w + 10;
+    }
+
+    // Occasional, soft lightning flash
+    if (Math.random() < 0.0018) {
+        flashes.push({alpha: 0.09 + Math.random() * 0.08});
+    }
+
+    if (flashes.length) {
+        const flash = flashes[0];
+        ctx.fillStyle = `rgba(205,235,255,${flash.alpha})`;
+        ctx.fillRect(0, 0, w, h);
+        flash.alpha -= 0.025;
+
+        if (flash.alpha <= 0) flashes.shift();
+    }
+
+    animationFrame = requestAnimationFrame(drawRain);
+}
+
+resize();
+drawRain();
+
+window.addEventListener("resize", resize);
+
+document.addEventListener("visibilitychange", () => {
+    if (document.hidden) {
+        cancelAnimationFrame(animationFrame);
+    } else {
+        cancelAnimationFrame(animationFrame);
+        drawRain();
+    }
+});
+</script>
+
+</body>
+</html>
