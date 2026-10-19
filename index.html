@@ -1,686 +1,126 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>BILVEX WEB STUDIO | Digital Reality</title>
-<meta name="description" content="BILVEX WEB STUDIO creates modern websites for businesses and entrepreneurs.">
-
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#07110d">
+<meta name="description" content="BILVEX WEB STUDIO builds modern responsive websites for businesses, creators and entrepreneurs.">
+<meta property="og:title" content="BILVEX WEB STUDIO | Ideas Into Digital Reality">
+<meta property="og:description" content="Modern websites for businesses and entrepreneurs.">
+<meta property="og:type" content="website">
+<meta name="google-site-verification" content="n5oWNh7R_Ex5dJNf9RHc76Z3MqlFsR90sOXfj-hBA04">
+<title>BILVEX WEB STUDIO | Ideas Into Digital Reality</title>
 <style>
-:root {
-    --green: #35e69a;
-    --bg: #050b08;
-    --text: #ffffff;
-    --muted: #b0c0b7;
-    --border: rgba(53,230,154,.25);
-}
-
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    scroll-behavior: smooth;
-}
-
-body {
-    font-family: Arial, Helvetica, sans-serif;
-    color: var(--text);
-    background: var(--bg);
-    line-height: 1.7;
-    overflow-x: hidden;
-}
-
-#rain {
-    position: fixed;
-    inset: 0;
-    width: 100%;
-    height: 100%;
-    z-index: -1;
-    pointer-events: none;
-}
-
-.background-glow {
-    position: fixed;
-    inset: 0;
-    z-index: -2;
-    pointer-events: none;
-    background:
-        radial-gradient(ellipse at 50% 0%, #17452e 0%, transparent 55%),
-        radial-gradient(ellipse at 90% 80%, #0c281b 0%, transparent 50%),
-        #050b08;
-    animation: glow 12s ease-in-out infinite alternate;
-}
-
-@keyframes glow {
-    from { filter: brightness(.8); }
-    to { filter: brightness(1.3); }
-}
-
-.container {
-    width: min(1120px, 90%);
-    margin: auto;
-}
-
-header {
-    position: sticky;
-    top: 0;
-    z-index: 5;
-    background: rgba(5,11,8,.88);
-    backdrop-filter: blur(14px);
-    border-bottom: 1px solid var(--border);
-}
-
-.navbar {
-    min-height: 76px;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    gap: 20px;
-}
-
-.logo {
-    color: white;
-    font-size: 21px;
-    font-weight: 800;
-    letter-spacing: 1px;
-    text-decoration: none;
-    white-space: nowrap;
-}
-
-.logo span,
-.green {
-    color: var(--green);
-}
-
-nav {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 20px;
-}
-
-nav a {
-    color: white;
-    font-size: 14px;
-    text-decoration: none;
-    transition: color .3s;
-}
-
-nav a:hover {
-    color: var(--green);
-}
-
-.hero {
-    min-height: 670px;
-    display: flex;
-    align-items: center;
-    text-align: center;
-    padding: 90px 0;
-}
-
-.hero-content {
-    max-width: 850px;
-    margin: auto;
-}
-
-.badge {
-    display: inline-block;
-    padding: 7px 18px;
-    border: 1px solid var(--green);
-    border-radius: 30px;
-    color: var(--green);
-    font-size: 12px;
-    letter-spacing: 2px;
-    margin-bottom: 28px;
-    background: rgba(5,20,12,.45);
-}
-
-h1 {
-    font-size: clamp(43px, 7vw, 80px);
-    line-height: 1.12;
-    letter-spacing: -2px;
-    margin-bottom: 25px;
-}
-
-h1 span {
-    color: var(--green);
-    text-shadow: 0 0 30px rgba(53,230,154,.25);
-}
-
-.hero p {
-    max-width: 660px;
-    margin: 0 auto 32px;
-    color: var(--muted);
-    font-size: 17px;
-}
-
-.buttons {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-wrap: wrap;
-    gap: 14px;
-}
-
-.btn {
-    display: inline-block;
-    padding: 13px 24px;
-    border-radius: 7px;
-    font-weight: bold;
-    text-decoration: none;
-    transition: .3s;
-}
-
-.btn-primary {
-    background: var(--green);
-    color: #04110a;
-}
-
-.btn-outline {
-    color: var(--green);
-    border: 1px solid var(--green);
-    background: rgba(5,11,8,.55);
-}
-
-.btn:hover {
-    transform: translateY(-3px);
-    box-shadow: 0 0 25px rgba(53,230,154,.2);
-}
-
-section {
-    padding: 82px 0;
-    scroll-margin-top: 85px;
-}
-
-.section-heading {
-    text-align: center;
-    margin-bottom: 42px;
-}
-
-.section-heading h2 {
-    font-size: clamp(30px, 4vw, 42px);
-    margin-bottom: 10px;
-}
-
-.section-heading p {
-    color: var(--muted);
-}
-
-.grid {
-    display: grid;
-    grid-template-columns: repeat(3, minmax(0,1fr));
-    gap: 22px;
-}
-
-.card {
-    padding: 27px;
-    background: rgba(10,24,16,.85);
-    border: 1px solid var(--border);
-    border-radius: 13px;
-    backdrop-filter: blur(8px);
-    transition: .3s;
-}
-
-.card:hover {
-    transform: translateY(-5px);
-    border-color: var(--green);
-    box-shadow: 0 10px 30px rgba(0,0,0,.2);
-}
-
-.icon {
-    font-size: 32px;
-    margin-bottom: 14px;
-}
-
-.card h3 {
-    color: var(--green);
-    margin-bottom: 10px;
-}
-
-.card p {
-    color: var(--muted);
-    font-size: 14px;
-}
-
-.project-label {
-    color: var(--green);
-    font-size: 12px;
-    letter-spacing: 1px;
-    margin-bottom: 10px;
-}
-
-.price {
-    font-size: 30px;
-    font-weight: bold;
-    margin: 14px 0;
-}
-
-.price small {
-    color: var(--muted);
-    font-size: 13px;
-    font-weight: normal;
-}
-
-.price-card ul {
-    list-style: none;
-    color: var(--muted);
-    font-size: 14px;
-}
-
-.price-card li {
-    margin: 8px 0;
-}
-
-.price-card .btn {
-    display: block;
-    text-align: center;
-    margin-top: 24px;
-}
-
-.featured {
-    border-color: var(--green);
-}
-
-.note {
-    text-align: center;
-    color: var(--muted);
-    font-size: 13px;
-    margin-top: 24px;
-}
-
-.about {
-    background: rgba(6,18,11,.8);
-    border-top: 1px solid var(--border);
-    border-bottom: 1px solid var(--border);
-}
-
-.about-content {
-    max-width: 780px;
-    margin: auto;
-    text-align: center;
-}
-
-.about-content p {
-    color: var(--muted);
-    margin: 16px 0;
-}
-
-.contact {
-    text-align: center;
-}
-
-.contact p {
-    max-width: 600px;
-    margin: 15px auto 28px;
-    color: var(--muted);
-}
-
-footer {
-    border-top: 1px solid var(--border);
-    padding: 27px 0;
-    text-align: center;
-    color: var(--muted);
-    font-size: 13px;
-    background: rgba(5,11,8,.8);
-}
-
-footer span {
-    color: var(--green);
-}
-
-@media (max-width: 800px) {
-    .navbar {
-        flex-direction: column;
-        padding: 17px 0;
-    }
-
-    nav {
-        justify-content: center;
-        gap: 14px;
-    }
-
-    .grid {
-        grid-template-columns: repeat(2, minmax(0,1fr));
-    }
-}
-
-@media (max-width: 550px) {
-    .grid {
-        grid-template-columns: 1fr;
-    }
-
-    .hero {
-        min-height: 550px;
-        padding: 70px 0;
-    }
-
-    section {
-        padding: 62px 0;
-    }
-
-    .logo {
-        font-size: 17px;
-    }
-
-    nav a {
-        font-size: 12px;
-    }
-}
-
-@media (prefers-reduced-motion: reduce) {
-    *, *::before, *::after {
-        animation: none !important;
-        scroll-behavior: auto !important;
-        transition: none !important;
-    }
-}
+:root{color-scheme:dark;--bg:#07110d;--panel:#0d1b14;--panel2:#10251a;--text:#f4fff8;--muted:#afc4b7;--accent:#35e69a;--line:rgba(105,255,183,.2);--shadow:0 18px 55px #0004}
+*{box-sizing:border-box;margin:0;padding:0}html{scroll-behavior:smooth;scroll-padding-top:90px}body{font-family:Inter,system-ui,-apple-system,"Segoe UI",sans-serif;background:var(--bg);color:var(--text);line-height:1.65;overflow-x:hidden}a{color:inherit}button,input,select,textarea{font:inherit}a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,textarea:focus-visible{outline:3px solid var(--accent);outline-offset:3px}
+body.light{color-scheme:light;--bg:#f4faf6;--panel:#fff;--panel2:#eaf7ef;--text:#10251a;--muted:#526b5d;--accent:#087f4b;--line:rgba(8,127,75,.2);--shadow:0 18px 55px #0d38211a}
+.container{width:min(1160px,92%);margin:auto}.skip{position:absolute;left:-9999px;top:8px;background:var(--accent);color:#04150b;padding:10px;z-index:100}.skip:focus{left:8px}
+#rain{position:fixed;inset:0;width:100%;height:100%;pointer-events:none;z-index:-2;opacity:.3}.glow{position:fixed;inset:0;z-index:-3;pointer-events:none;background:radial-gradient(ellipse at 50% -10%,#18704466,transparent 55%),radial-gradient(ellipse at 90% 75%,#165c392e,transparent 45%),var(--bg)}
+header{position:sticky;top:0;z-index:20;background:color-mix(in srgb,var(--bg) 90%,transparent);backdrop-filter:blur(16px);border-bottom:1px solid var(--line)}.navbar{min-height:74px;display:flex;align-items:center;justify-content:space-between;gap:16px}.logo{display:flex;align-items:center;gap:9px;text-decoration:none;font-weight:900;letter-spacing:.05em;font-size:17px;white-space:nowrap}.mark{display:grid;place-items:center;width:34px;height:34px;border-radius:10px;background:var(--accent);color:#04150b}.logo em{font-style:normal;color:var(--accent)}.nav-actions{display:flex;align-items:center;gap:10px}nav{display:flex;gap:18px;align-items:center}nav a{font-size:13px;color:var(--muted);text-decoration:none;font-weight:700}nav a:hover{color:var(--accent)}.icon-btn,.menu-btn{min-width:42px;min-height:42px;border:1px solid var(--line);border-radius:11px;background:var(--panel);color:var(--text);cursor:pointer}.menu-btn{display:none;font-size:20px}
+.hero{padding:90px 0 76px;min-height:620px;display:grid;align-items:center}.hero-grid{display:grid;grid-template-columns:1.08fr .92fr;gap:40px;align-items:center}.eyebrow,.kicker{color:var(--accent);font-size:11px;font-weight:900;letter-spacing:.17em;text-transform:uppercase}.eyebrow{display:inline-flex;gap:9px;align-items:center;padding:8px 13px;border:1px solid var(--line);border-radius:30px;background:var(--panel)}.pulse{width:7px;height:7px;border-radius:50%;background:var(--accent);box-shadow:0 0 0 5px #35e69a22}h1{font-size:clamp(44px,6.7vw,82px);line-height:1.02;letter-spacing:-.065em;margin:23px 0}.gradient{color:var(--accent);text-shadow:0 0 25px #35e69a22}.hero-copy{max-width:610px;color:var(--muted);font-size:clamp(16px,1.8vw,19px)}.actions{display:flex;gap:12px;flex-wrap:wrap;margin-top:28px}.btn{display:inline-flex;justify-content:center;align-items:center;gap:8px;min-height:47px;padding:11px 18px;border:1px solid transparent;border-radius:11px;text-decoration:none;font-weight:850;font-size:13px;cursor:pointer;transition:transform .2s,border-color .2s}.btn:hover{transform:translateY(-3px)}.primary{background:var(--accent);color:#04150b}.secondary{background:var(--panel);border-color:var(--line);color:var(--text)}.hero-note,.fine{font-size:12px;color:var(--muted);margin-top:16px}
+.window{background:linear-gradient(145deg,var(--panel),var(--panel2));border:1px solid var(--line);border-radius:22px;padding:18px;box-shadow:var(--shadow);transform:rotate(1deg)}.window-top{display:flex;justify-content:space-between;border-bottom:1px solid var(--line);padding-bottom:13px;margin-bottom:15px}.dots{display:flex;gap:5px}.dots i{width:7px;height:7px;border-radius:50%;background:var(--muted)}.window-label{font-size:10px;color:var(--muted);letter-spacing:.12em}.mock-hero{min-height:205px;padding:24px;border-radius:15px;background:linear-gradient(135deg,#09291a,#0d5835);display:flex;flex-direction:column;justify-content:center;color:#f4fff8}.mock-hero small{color:#9bffd0;letter-spacing:.18em}.mock-hero strong{font-size:clamp(27px,3vw,39px);line-height:1.1;margin:12px 0}.mock-hero span{font-size:12px;color:#c4e9d4}.mock-cards{display:grid;grid-template-columns:repeat(3,1fr);gap:9px;margin-top:12px}.mock-card{height:70px;padding:10px;border:1px solid var(--line);border-radius:10px;background:var(--panel2)}.mock-card i{display:block;width:22px;height:22px;background:#35e69a33;border-radius:7px;margin-bottom:8px}.mock-card b{display:block;width:70%;height:5px;background:var(--muted);opacity:.5;border-radius:5px}.float-tag{margin-top:14px;text-align:right;color:var(--accent);font-size:12px;font-weight:800}
+.strip{border-block:1px solid var(--line);background:var(--panel)}.strip-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;padding:20px 0;text-align:center}.strip strong{display:block;font-size:14px}.strip span{font-size:12px;color:var(--muted)}
+section{padding:82px 0;scroll-margin-top:78px}.section-head{text-align:center;max-width:720px;margin:0 auto 38px}.section-head h2{font-size:clamp(30px,4.5vw,47px);letter-spacing:-.045em;line-height:1.12;margin:10px 0}.section-head p,.muted{color:var(--muted)}.cards{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:17px}.card{min-width:0;padding:24px;border:1px solid var(--line);border-radius:17px;background:linear-gradient(145deg,var(--panel),color-mix(in srgb,var(--panel2) 45%,var(--panel)));transition:transform .22s,border-color .22s,box-shadow .22s}.card:hover{transform:translateY(-4px);border-color:var(--accent);box-shadow:var(--shadow)}.card-icon{display:grid;place-items:center;width:46px;height:46px;border-radius:13px;background:#35e69a18;font-size:23px;margin-bottom:16px}.card h3{font-size:18px;margin-bottom:8px}.card p{font-size:14px;color:var(--muted)}.card-link{display:inline-block;margin-top:15px;color:var(--accent);font-weight:850;text-decoration:none;font-size:13px}
+.preview{height:145px;border:1px solid var(--line);border-radius:12px;padding:14px;display:flex;flex-direction:column;justify-content:space-between;margin-bottom:16px;color:#fff}.retail{background:linear-gradient(135deg,#142d22,#287b51)}.service{background:linear-gradient(135deg,#101a36,#315f9c)}.store{background:linear-gradient(135deg,#351a30,#a34c7c)}.preview-top{display:flex;justify-content:space-between;font-size:10px}.preview-title{font-size:25px;font-weight:900;line-height:1.05}.label{color:var(--accent);font-size:10px;font-weight:900;letter-spacing:.14em}
+.price-card{display:flex;flex-direction:column}.featured{border-color:var(--accent);box-shadow:0 0 0 1px #35e69a22,var(--shadow)}.popular{align-self:flex-start;border-radius:30px;padding:4px 9px;background:var(--accent);color:#04150b;font-size:10px;font-weight:900;margin-bottom:12px}.price{font-size:33px;font-weight:950;margin:13px 0}.price small{font-size:12px;color:var(--muted);font-weight:500}.price-card ul{list-style:none;color:var(--muted);font-size:13px;margin:12px 0 20px}.price-card li{margin:8px 0}.price-card li:before{content:"✓";color:var(--accent);font-weight:900;margin-right:8px}.price-card .btn{width:100%;margin-top:auto}
+.calc-wrap{display:grid;grid-template-columns:1fr .8fr;gap:20px;align-items:start}.calc-fields,.form-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:13px}.field{display:flex;flex-direction:column;gap:6px}.field label{font-size:13px;font-weight:750}.field input,.field select,.field textarea{width:100%;min-height:44px;padding:11px;border:1px solid var(--line);border-radius:10px;background:var(--bg);color:var(--text)}.field textarea{min-height:110px;resize:vertical}.estimate{font-size:clamp(34px,4vw,44px);font-weight:950;color:var(--accent);margin:10px 0}.fine{font-size:12px}.process{counter-reset:step}.step{padding-top:58px;position:relative}.step:before{counter-increment:step;content:"0" counter(step);position:absolute;top:17px;color:var(--accent);font-size:23px;font-weight:950}
+.faq{max-width:820px;margin:auto;display:grid;gap:10px}details{background:var(--panel);border:1px solid var(--line);border-radius:12px;padding:0 17px}summary{list-style:none;cursor:pointer;font-weight:800;padding:16px 25px 16px 0;position:relative}summary::-webkit-details-marker{display:none}summary:after{content:"+";position:absolute;right:0;color:var(--accent);font-size:21px;top:10px}details[open] summary:after{content:"−"}details p{padding-bottom:17px;color:var(--muted);font-size:14px}
+.contact-panel{display:grid;grid-template-columns:.8fr 1fr;gap:30px;padding:clamp(22px,4vw,40px);border:1px solid var(--line);border-radius:22px;background:linear-gradient(140deg,var(--panel),var(--panel2))}.contact-panel h2{font-size:clamp(30px,4vw,43px);line-height:1.1;margin:12px 0}.full{grid-column:1/-1}.form-note{font-size:12px;color:var(--muted);margin-top:9px}footer{border-top:1px solid var(--line);padding:25px 0;color:var(--muted);font-size:12px}.footer-inner{display:flex;justify-content:space-between;align-items:center;gap:15px;flex-wrap:wrap}.footer-links{display:flex;gap:15px;flex-wrap:wrap}.footer-links a{color:var(--muted);text-decoration:none}.footer-links a:hover{color:var(--accent)}
+.progress{position:fixed;top:0;left:0;height:3px;width:0;background:var(--accent);z-index:50}.float-wa{position:fixed;right:18px;bottom:18px;width:52px;height:52px;border-radius:50%;display:grid;place-items:center;background:#25d366;color:#06210f;font-size:23px;text-decoration:none;z-index:30;box-shadow:0 8px 25px #0005}.back-top{display:none;position:fixed;right:23px;bottom:80px;z-index:29;width:40px;height:40px;border-radius:11px;border:1px solid var(--line);background:var(--panel);color:var(--text);cursor:pointer}.back-top.show{display:block}.reveal{opacity:0;transform:translateY(16px);transition:opacity .55s,transform .55s}.reveal.visible{opacity:1;transform:none}
+@media(max-width:900px){.hero-grid{grid-template-columns:1fr;gap:32px}.hero-visual{max-width:620px;width:100%;margin:auto}.cards{grid-template-columns:repeat(2,minmax(0,1fr))}.calc-wrap,.contact-panel{grid-template-columns:1fr}}
+@media(max-width:720px){.navbar{min-height:67px}.menu-btn{display:inline-block}nav{display:none;position:absolute;top:67px;left:4%;right:4%;padding:12px;border:1px solid var(--line);border-radius:14px;background:var(--panel);box-shadow:var(--shadow);flex-direction:column;gap:0}nav.open{display:flex}nav a{padding:12px}.logo{font-size:14px}.hero{padding:60px 0}.cards{grid-template-columns:1fr}section{padding:64px 0}.strip-grid{grid-template-columns:1fr;gap:10px}.calc-fields,.form-grid{grid-template-columns:1fr}.full{grid-column:auto}.float-tag{font-size:11px}}
+@media(prefers-reduced-motion:reduce){*,*::before,*::after{animation:none!important;scroll-behavior:auto!important;transition:none!important}.reveal{opacity:1;transform:none}}
 </style>
-<meta name="google-site-verification" content="n5oWNh7R_Ex5dJNf9RHc76Z3MqlFsR90sOXfj-hBA04" />=
 </head>
-
 <body>
-
-<div class="background-glow"></div>
-<canvas id="rain" aria-hidden="true"></canvas>
-
-<header>
-    <div class="container navbar">
-        <a class="logo" href="#home">BILVEX <span>WEB STUDIO</span></a>
-        <nav>
-            <a href="#home">Home</a>
-            <a href="#services">Services</a>
-            <a href="#projects">Projects</a>
-            <a href="#pricing">Pricing</a>
-            <a href="#about">About</a>
-            <a href="#contact">Contact</a>
-        </nav>
-    </div>
-</header>
-
-<main>
-
-<section class="hero" id="home">
-    <div class="container hero-content">
-        <div class="badge">YOUR DIGITAL GROWTH PARTNER</div>
-
-        <h1>Ideas Into<br><span>Digital Reality.</span></h1>
-
-        <p>
-            We build modern, responsive websites that help businesses grow
-            online, reach more customers and stand out from the crowd.
-        </p>
-
-        <div class="buttons">
-            <a class="btn btn-primary"
-               href="https://wa.me/919061200762?text=Hello%20BILVEX%20WEB%20STUDIO%2C%20I%20need%20a%20website.">
-                Start Your Project ↗
-            </a>
-
-            <a class="btn btn-outline" href="#services">
-                Explore Services
-            </a>
-        </div>
-    </div>
-</section>
-
-<section id="services">
-    <div class="container">
-        <div class="section-heading">
-            <h2>Our <span class="green">Services</span></h2>
-            <p>Digital solutions for your business.</p>
-        </div>
-
-        <div class="grid">
-            <div class="card">
-                <div class="icon">🌐</div>
-                <h3>Business Websites</h3>
-                <p>Professional websites that introduce your business and connect with customers.</p>
-            </div>
-
-            <div class="card">
-                <div class="icon">🛒</div>
-                <h3>E-commerce Stores</h3>
-                <p>Online storefronts to showcase products and help your business sell online.</p>
-            </div>
-
-            <div class="card">
-                <div class="icon">🎨</div>
-                <h3>Portfolio Websites</h3>
-                <p>Modern portfolios to showcase your skills and professional work.</p>
-            </div>
-
-            <div class="card">
-                <div class="icon">📱</div>
-                <h3>Responsive Design</h3>
-                <p>Mobile-friendly websites for phones, tablets and desktop screens.</p>
-            </div>
-
-            <div class="card">
-                <div class="icon">🚀</div>
-                <h3>Landing Pages</h3>
-                <p>Focused pages for businesses, products and promotions.</p>
-            </div>
-
-            <div class="card">
-                <div class="icon">⚙️</div>
-                <h3>Website Updates</h3>
-                <p>Updates and improvements for existing websites.</p>
-            </div>
-        </div>
-    </div>
-</section>
-
-<section id="projects">
-    <div class="container">
-        <div class="section-heading">
-            <h2>Demo <span class="green">Concepts</span></h2>
-            <p>Examples of website styles for different businesses.</p>
-        </div>
-
-        <div class="grid">
-            <div class="card">
-                <div class="project-label">CONCEPT 01</div>
-                <h3>Retail Store</h3>
-                <p>A product catalogue concept for a retail business.</p>
-            </div>
-
-            <div class="card">
-                <div class="project-label">CONCEPT 02</div>
-                <h3>Business Website</h3>
-                <p>A professional online presence for a service provider.</p>
-            </div>
-
-            <div class="card">
-                <div class="project-label">CONCEPT 03</div>
-                <h3>Online Store</h3>
-                <p>An online store concept for showcasing products.</p>
-            </div>
-        </div>
-
-        <p class="note">These are demo concepts, not completed client projects.</p>
-    </div>
-</section>
-
-<section id="pricing">
-    <div class="container">
-        <div class="section-heading">
-            <h2>Website <span class="green">Packages</span></h2>
-            <p>Sample starting prices. Final quotes depend on your requirements.</p>
-        </div>
-
-        <div class="grid">
-            <div class="card price-card">
-                <h3>Starter</h3>
-                <p>For individuals and small businesses.</p>
-                <div class="price">₹999 <small>starting</small></div>
-                <ul>
-                    <li>✓ Basic landing page</li>
-                    <li>✓ Mobile-friendly layout</li>
-                    <li>✓ Contact button</li>
-                </ul>
-                <a class="btn btn-outline"
-                   href="https://wa.me/919061200762?text=Hello%2C%20I%20am%20interested%20in%20the%20Starter%20package.">Enquire Now</a>
-            </div>
-
-            <div class="card price-card featured">
-                <h3>Business</h3>
-                <p>For businesses needing multiple sections.</p>
-                <div class="price">₹1,999 <small>starting</small></div>
-                <ul>
-                    <li>✓ Multi-section website</li>
-                    <li>✓ Responsive design</li>
-                    <li>✓ Services and contact</li>
-                </ul>
-                <a class="btn btn-primary"
-                   href="https://wa.me/919061200762?text=Hello%2C%20I%20am%20interested%20in%20the%20Business%20package.">Enquire Now</a>
-            </div>
-
-            <div class="card price-card">
-                <h3>E-commerce</h3>
-                <p>For businesses wanting to sell online.</p>
-                <div class="price">₹2,999 <small>starting</small></div>
-                <ul>
-                    <li>✓ Product showcase</li>
-                    <li>✓ Store layout</li>
-                    <li>✓ Contact and order options</li>
-                </ul>
-                <a class="btn btn-outline"
-                   href="https://wa.me/919061200762?text=Hello%2C%20I%20am%20interested%20in%20an%20e-commerce%20website.">Enquire Now</a>
-            </div>
-        </div>
-
-        <p class="note">
-            Domain, hosting, payment gateway and extra features may cost more.
-        </p>
-    </div>
-</section>
-
-<section class="about" id="about">
-    <div class="container about-content">
-        <div class="section-heading">
-            <h2>About <span class="green">BILVEX</span></h2>
-        </div>
-
-        <p>
-            BILVEX WEB STUDIO focuses on building modern and accessible
-            websites for businesses, entrepreneurs and individuals.
-        </p>
-
-        <p>
-            Our goal is to turn ideas into professional digital experiences
-            through thoughtful design and practical solutions.
-        </p>
-    </div>
-</section>
-
-<section id="contact">
-    <div class="container contact">
-        <div class="section-heading">
-            <h2>Let's Build Something <span class="green">Great.</span></h2>
-        </div>
-
-        <p>Have a project in mind? Contact us to discuss your requirements.</p>
-
-        <a class="btn btn-primary"
-           href="https://wa.me/919061200762?text=Hello%20BILVEX%20WEB%20STUDIO%2C%20I%20want%20to%20discuss%20a%20website%20project.">
-            Chat on WhatsApp ↗
-        </a>
-    </div>
-</section>
-
+<a class="skip" href="#main">Skip to content</a><div class="progress" id="progress"></div><div class="glow"></div><canvas id="rain" aria-hidden="true"></canvas>
+<header><div class="container navbar">
+<a class="logo" href="#home"><span class="mark">B</span><span>BILVEX <em>WEB STUDIO</em></span></a>
+<div class="nav-actions"><nav id="nav" aria-label="Main navigation"><a href="#home">Home</a><a href="#services">Services</a><a href="#projects">Portfolio</a><a href="#pricing">Packages</a><a href="#calculator">Estimate</a><a href="#about">About</a><a href="#contact">Contact</a></nav><button class="icon-btn" id="theme" type="button" aria-label="Switch theme">☼</button><button class="menu-btn" id="menu" type="button" aria-expanded="false" aria-controls="nav" aria-label="Open menu">☰</button></div>
+</div></header>
+<main id="main">
+<section class="hero" id="home"><div class="container hero-grid"><div>
+<div class="eyebrow"><span class="pulse"></span> YOUR DIGITAL GROWTH PARTNER</div><h1>Ideas into<br><span class="gradient">Digital Reality.</span></h1>
+<p class="hero-copy">Modern websites built to help your business look professional, explain what you offer and make it easier for customers to contact you.</p>
+<div class="actions"><a class="btn primary" href="#contact">Start your project ↗</a><a class="btn secondary" href="#projects">Explore our work ↓</a></div><p class="hero-note">Thoughtful design · Responsive layouts · Clear customer journeys</p>
+</div><div class="hero-visual" role="img" aria-label="Illustration of a BILVEX website design"><div class="window"><div class="window-top"><div class="dots"><i></i><i></i><i></i></div><span class="window-label">BILVEX / DIGITAL STUDIO</span></div><div class="mock-hero"><small>DESIGN • BUILD • GROW</small><strong>Your next idea,<br>beautifully online.</strong><span>Clear design. Useful features. Built for people.</span></div><div class="mock-cards"><div class="mock-card"><i></i><b></b></div><div class="mock-card"><i></i><b></b></div><div class="mock-card"><i></i><b></b></div></div></div><div class="float-tag">● Built around your goals</div></div>
+</div></section>
+<div class="strip"><div class="container strip-grid"><div><strong>Mobile-first layouts</strong><span>Made for small screens too</span></div><div><strong>Clear communication</strong><span>Discuss scope before work begins</span></div><div><strong>Purposeful design</strong><span>Focus on customers and clarity</span></div></div></div>
+<section id="services"><div class="container"><div class="section-head reveal"><span class="kicker">What we do</span><h2>Digital services for <span class="gradient">real goals.</span></h2><p>Choose a starting point. We can discuss the right scope for your business and budget.</p></div><div class="cards">
+<article class="card reveal"><div class="card-icon">🌐</div><h3>Business Websites</h3><p>Present your business, services, location and contact details in one professional place.</p><a class="card-link" href="#contact" data-service="Business website">Discuss this service ↗</a></article>
+<article class="card reveal"><div class="card-icon">🛍️</div><h3>Product & E-commerce</h3><p>Product catalogues and store-style experiences with clear product information and enquiry paths.</p><a class="card-link" href="#contact" data-service="E-commerce / product catalogue">Discuss this service ↗</a></article>
+<article class="card reveal"><div class="card-icon">🎨</div><h3>Portfolio Websites</h3><p>Showcase your skills, projects and professional story in a clean, memorable layout.</p><a class="card-link" href="#contact" data-service="Portfolio website">Discuss this service ↗</a></article>
+<article class="card reveal"><div class="card-icon">📱</div><h3>Responsive Design</h3><p>Layouts designed to work across phones, tablets and desktop screens.</p><a class="card-link" href="#contact" data-service="Website redesign / improvements">Discuss this service ↗</a></article>
+<article class="card reveal"><div class="card-icon">🚀</div><h3>Landing Pages</h3><p>Focused pages for a service, product, campaign or launch with one clear next step.</p><a class="card-link" href="#contact" data-service="Landing page">Discuss this service ↗</a></article>
+<article class="card reveal"><div class="card-icon">⚙️</div><h3>Website Improvements</h3><p>Content, layout, mobile usability and visual improvements for an existing website.</p><a class="card-link" href="#contact" data-service="Website redesign / improvements">Discuss this service ↗</a></article>
+</div></div></section>
+<section id="projects"><div class="container"><div class="section-head reveal"><span class="kicker">Selected concepts</span><h2>Ideas brought to <span class="gradient">the screen.</span></h2><p>Visual directions for different business types. These are concept previews, not claims of completed client work.</p></div><div class="cards">
+<article class="card reveal"><div class="preview retail"><div class="preview-top"><b>RETAIL / CATALOGUE</b><span>CONCEPT 01</span></div><div class="preview-title">Find your<br>everyday essentials.</div></div><span class="label">DEMO CONCEPT</span><h3>Retail Catalogue</h3><p>A product-led layout for categories, featured items and customer enquiries.</p><a class="btn secondary" style="margin-top:15px" href="#contact" data-service="Retail catalogue concept">Build something similar ↗</a></article>
+<article class="card reveal"><div class="preview service"><div class="preview-top"><b>LOCAL BUSINESS</b><span>CONCEPT 02</span></div><div class="preview-title">Make a strong<br>first impression.</div></div><span class="label">DEMO CONCEPT</span><h3>Service Business</h3><p>A clean service website with benefits, work process and a direct contact path.</p><a class="btn secondary" style="margin-top:15px" href="#contact" data-service="Business website">Build something similar ↗</a></article>
+<article class="card reveal"><div class="preview store"><div class="preview-top"><b>ONLINE STORE</b><span>CONCEPT 03</span></div><div class="preview-title">Your shop,<br>open online.</div></div><span class="label">DEMO CONCEPT</span><h3>Storefront Concept</h3><p>A store-style experience for product discovery, categories and order enquiries.</p><a class="btn secondary" style="margin-top:15px" href="#contact" data-service="E-commerce / product catalogue">Build something similar ↗</a></article>
+</div><p class="fine" style="text-align:center">Illustrative concepts only. Add live demo links as projects become available.</p></div></section>
+<section id="pricing"><div class="container"><div class="section-head reveal"><span class="kicker">Starting packages</span><h2>Simple ways to <span class="gradient">get started.</span></h2><p>Indicative starting prices only. Final scope and any third-party costs must be agreed before work begins.</p></div><div class="cards">
+<article class="card price-card reveal"><h3>Starter</h3><p>For a simple online presence.</p><div class="price">₹999 <small>starting</small></div><ul><li>Basic landing page</li><li>Mobile-friendly layout</li><li>Contact / WhatsApp link</li><li>One-page scope</li></ul><a class="btn secondary" href="#contact" data-package="Starter — ₹999 starting">Enquire about Starter ↗</a></article>
+<article class="card price-card featured reveal"><span class="popular">POPULAR STARTING POINT</span><h3>Business</h3><p>For businesses needing more sections.</p><div class="price">₹1,999 <small>starting</small></div><ul><li>Multiple content sections</li><li>Responsive layout</li><li>Services and contact</li><li>Basic on-page SEO setup</li></ul><a class="btn primary" href="#contact" data-package="Business — ₹1,999 starting">Enquire about Business ↗</a></article>
+<article class="card price-card reveal"><h3>Store concept</h3><p>For product displays and order enquiries.</p><div class="price">₹2,999 <small>starting</small></div><ul><li>Product showcase layout</li><li>Category / product sections</li><li>Contact or order enquiry</li><li>Payment and inventory quoted separately</li></ul><a class="btn secondary" href="#contact" data-package="Store concept — ₹2,999 starting">Enquire about Store ↗</a></article>
+</div><p class="fine" style="text-align:center">Domain, hosting, paid assets, payment gateways and advanced integrations may cost extra. Confirm final pricing before purchase.</p></div></section>
+<section id="calculator"><div class="container"><div class="section-head reveal"><span class="kicker">Project planner</span><h2>Build your rough <span class="gradient">estimate.</span></h2><p>Use this calculator for planning. It is not a binding quote.</p></div><div class="calc-wrap"><div class="card reveal"><div class="calc-fields">
+<div class="field"><label for="base">Website type</label><select id="base"><option value="999">Starter — ₹999</option><option value="1999">Business — ₹1,999</option><option value="2999">Store concept — ₹2,999</option></select></div>
+<div class="field"><label for="pages">Extra pages</label><select id="pages"><option value="0">No extra pages</option><option value="300">1–2 pages (+₹300)</option><option value="600">3–4 pages (+₹600)</option><option value="1000">5+ pages (+₹1,000)</option></select></div>
+<div class="field"><label for="formOption">Contact form interface</label><select id="formOption"><option value="0">Not needed</option><option value="400">Include (+₹400)</option></select></div>
+<div class="field"><label for="catalogue">Product catalogue</label><select id="catalogue"><option value="0">Not needed</option><option value="700">Basic catalogue (+₹700)</option></select></div>
+<div class="field"><label for="seo">Additional SEO pass</label><select id="seo"><option value="0">Basic on-page setup</option><option value="350">Additional pass (+₹350)</option></select></div>
+<div class="field"><label for="support">Support estimate</label><select id="support"><option value="0">Not included</option><option value="500">Discuss support (+₹500)</option></select></div>
+</div></div><aside class="card reveal"><span class="kicker">Estimated starting total</span><div class="estimate" id="estimate" aria-live="polite">₹999</div><p class="muted">Sample add-on amounts are for planning only. Confirm scope and final price with BILVEX.</p><a class="btn primary" href="#contact" id="estimateLink" style="margin-top:16px">Discuss this estimate ↗</a><p class="fine">Domain, hosting, paid tools, payment gateway and backend features are excluded unless agreed.</p></aside></div></div></section>
+<section id="process"><div class="container"><div class="section-head reveal"><span class="kicker">How we work</span><h2>A clear process, <span class="gradient">step by step.</span></h2><p>Good projects start with a shared understanding of the goal and scope.</p></div><div class="cards process">
+<article class="card step reveal"><h3>Discuss</h3><p>Share your business, goals, budget and the features you need.</p></article><article class="card step reveal"><h3>Plan & design</h3><p>Agree on page structure, visual direction and project scope.</p></article><article class="card step reveal"><h3>Build & review</h3><p>Review the work, test mobile layouts and request agreed refinements.</p></article><article class="card step reveal"><h3>Launch</h3><p>Agree on handover, hosting arrangements and any ongoing support.</p></article>
+</div></div></section>
+<section id="about"><div class="container"><div class="section-head reveal"><span class="kicker">About the studio</span><h2>Practical design with <span class="gradient">purpose.</span></h2><p>BILVEX WEB STUDIO aims to help small businesses, entrepreneurs and individuals present their ideas online through modern layouts, clear content and practical contact paths. Each project begins with a discussion about needs, budget and scope.</p></div><div class="cards">
+<article class="card reveal"><div class="card-icon">◎</div><h3>Clarity first</h3><p>Help visitors understand what you offer and what to do next.</p></article><article class="card reveal"><div class="card-icon">▣</div><h3>Designed for devices</h3><p>Prioritise readable content, touch-friendly controls and flexible layouts.</p></article><article class="card reveal"><div class="card-icon">↗</div><h3>Honest scope</h3><p>Discuss features, costs and third-party services before confirming work.</p></article>
+</div></div></section>
+<section id="faq"><div class="container"><div class="section-head reveal"><span class="kicker">Frequently asked questions</span><h2>Questions before <span class="gradient">you begin.</span></h2></div><div class="faq reveal">
+<details><summary>How do I get a quote?</summary><p>Send your business type, required pages, features and budget through the enquiry form. We can discuss the scope before confirming a quote.</p></details>
+<details><summary>Are the displayed prices final?</summary><p>No. They are indicative starting prices. The final amount depends on agreed scope, content, integrations and third-party costs.</p></details>
+<details><summary>Is domain and hosting included?</summary><p>Not automatically. Domain, hosting, paid tools and other third-party costs are discussed separately before purchase.</p></details>
+<details><summary>Can I request changes?</summary><p>Yes. The expected number and type of revisions should be agreed before work begins.</p></details>
+<details><summary>Will the website work on mobile?</summary><p>The design prioritises responsive layouts. Pages should be checked on common screen sizes before launch.</p></details>
+<details><summary>Can you build a full online store?</summary><p>We can discuss requirements. Secure payments, inventory, user accounts and backend functions need separate planning and may cost extra.</p></details>
+</div></div></section>
+<section id="contact"><div class="container"><div class="contact-panel reveal"><div><span class="kicker">Let’s talk</span><h2>Have an idea?<br><span class="gradient">Let’s plan it.</span></h2><p class="muted">Share project details. This form opens WhatsApp with a message for you to review and send.</p><p class="muted" style="margin-top:15px;font-size:13px">WhatsApp: <strong>+91 90612 00762</strong></p><p class="fine">This static website does not store form submissions. WhatsApp opens only after you submit.</p></div>
+<form id="contactForm"><div class="form-grid">
+<div class="field"><label for="name">Your name *</label><input id="name" name="name" autocomplete="name" required maxlength="80" placeholder="Name"></div>
+<div class="field"><label for="business">Business / brand</label><input id="business" name="business" maxlength="100" placeholder="Business name"></div>
+<div class="field"><label for="phone">Your WhatsApp number</label><input id="phone" name="phone" inputmode="tel" maxlength="20" placeholder="Optional"></div>
+<div class="field"><label for="service">What do you need? *</label><select id="service" name="service" required><option value="">Choose a service</option><option>Business website</option><option>E-commerce / product catalogue</option><option>Portfolio website</option><option>Landing page</option><option>Website redesign / improvements</option><option>Not sure yet</option></select></div>
+<div class="field"><label for="budget">Budget range</label><select id="budget" name="budget"><option>Not decided</option><option>Under ₹1,000</option><option>₹1,000–₹3,000</option><option>₹3,000–₹7,000</option><option>₹7,000+</option></select></div>
+<div class="field"><label for="timeline">Expected timeline</label><select id="timeline" name="timeline"><option>Flexible</option><option>Within a week</option><option>Within 2–4 weeks</option><option>Discuss first</option></select></div>
+<div class="field full"><label for="details">Project details *</label><textarea id="details" name="details" required maxlength="1200" placeholder="What should the website do? Which pages or features do you need?"></textarea></div>
+<div class="full"><button class="btn primary" type="submit" style="width:100%">Prepare WhatsApp enquiry ↗</button><p class="form-note">WhatsApp opens in a new tab. Review the message and press Send there.</p></div>
+</div></form></div></div></section>
 </main>
-
-<footer>
-    <div class="container">
-        <p>© <span id="year"></span> BILVEX WEB STUDIO. All rights reserved.</p>
-        <p>Building a better digital future.</p>
-    </div>
-</footer>
-
+<footer><div class="container footer-inner"><p>© <span id="year"></span> BILVEX WEB STUDIO. Ideas Into Digital Reality.</p><div class="footer-links"><a href="#services">Services</a><a href="#pricing">Packages</a><a href="#faq">FAQ</a><a href="#contact">Contact</a></div></div></footer>
+<a class="float-wa" href="https://wa.me/919061200762?text=Hello%20BILVEX%20WEB%20STUDIO%2C%20I%20would%20like%20to%20discuss%20a%20website%20project." target="_blank" rel="noopener noreferrer" aria-label="Contact BILVEX on WhatsApp">✆</a><button class="back-top" id="backTop" type="button" aria-label="Back to top">↑</button>
 <script>
-document.getElementById("year").textContent = new Date().getFullYear();
-
-const canvas = document.getElementById("rain");
-const ctx = canvas.getContext("2d");
-
-let w, h, drops = [], flashes = [];
-let animationFrame;
-
-function resize() {
-    const dpr = Math.min(window.devicePixelRatio || 1, 2);
-    w = window.innerWidth;
-    h = window.innerHeight;
-
-    canvas.width = w * dpr;
-    canvas.height = h * dpr;
-    canvas.style.width = w + "px";
-    canvas.style.height = h + "px";
-    ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
-
-    const count = Math.min(180, Math.floor(w * 0.22));
-
-    drops = Array.from({length: count}, () => ({
-        x: Math.random() * w,
-        y: Math.random() * h,
-        length: 10 + Math.random() * 19,
-        speed: 5 + Math.random() * 8,
-        opacity: 0.12 + Math.random() * 0.35,
-        drift: -1.5 - Math.random() * 1.5
-    }));
-}
-
-function drawRain() {
-    ctx.clearRect(0, 0, w, h);
-
-    for (const d of drops) {
-        ctx.beginPath();
-        ctx.moveTo(d.x, d.y);
-        ctx.lineTo(d.x + d.drift, d.y + d.length);
-        ctx.strokeStyle = `rgba(170,220,205,${d.opacity})`;
-        ctx.lineWidth = 1;
-        ctx.stroke();
-
-        d.x += d.drift;
-        d.y += d.speed;
-
-        if (d.y > h + d.length) {
-            d.y = -d.length;
-            d.x = Math.random() * w;
-        }
-
-        if (d.x < -20) d.x = w + 10;
-    }
-
-    // Occasional, soft lightning flash
-    if (Math.random() < 0.0018) {
-        flashes.push({alpha: 0.09 + Math.random() * 0.08});
-    }
-
-    if (flashes.length) {
-        const flash = flashes[0];
-        ctx.fillStyle = `rgba(205,235,255,${flash.alpha})`;
-        ctx.fillRect(0, 0, w, h);
-        flash.alpha -= 0.025;
-
-        if (flash.alpha <= 0) flashes.shift();
-    }
-
-    animationFrame = requestAnimationFrame(drawRain);
-}
-
-resize();
-drawRain();
-
-window.addEventListener("resize", resize);
-
-document.addEventListener("visibilitychange", () => {
-    if (document.hidden) {
-        cancelAnimationFrame(animationFrame);
-    } else {
-        cancelAnimationFrame(animationFrame);
-        drawRain();
-    }
-});
+(()=> {
+const $=s=>document.querySelector(s), $$=s=>[...document.querySelectorAll(s)];
+$('#year').textContent=new Date().getFullYear();
+const nav=$('#nav'),menu=$('#menu');
+menu.addEventListener('click',()=>{let open=nav.classList.toggle('open');menu.setAttribute('aria-expanded',String(open));menu.textContent=open?'×':'☰';menu.setAttribute('aria-label',open?'Close menu':'Open menu')});
+$$('#nav a').forEach(a=>a.addEventListener('click',()=>{nav.classList.remove('open');menu.setAttribute('aria-expanded','false');menu.textContent='☰'}));
+const theme=$('#theme');theme.addEventListener('click',()=>{let light=document.body.classList.toggle('light');theme.textContent=light?'☾':'☼';theme.setAttribute('aria-label',light?'Switch to dark theme':'Switch to light theme');try{localStorage.setItem('bilvex-theme',light?'light':'dark')}catch(e){}});
+try{if(localStorage.getItem('bilvex-theme')==='light'){document.body.classList.add('light');theme.textContent='☾'}}catch(e){}
+const priceIds=['base','pages','formOption','catalogue','seo','support'];
+function calc(){let sum=priceIds.reduce((n,id)=>n+Number($('#'+id).value||0),0);$('#estimate').textContent='₹'+sum.toLocaleString('en-IN');return sum}
+priceIds.forEach(id=>$('#'+id).addEventListener('change',calc));calc();
+$('#estimateLink').addEventListener('click',()=>{$('#service').value=Number($('#base').value)===2999?'E-commerce / product catalogue':'Business website';$('#details').value='I used the estimate calculator. Estimated starting total: '+$('#estimate').textContent+'. Please confirm the scope and final quote.'});
+$$('[data-service]').forEach(a=>a.addEventListener('click',()=>{let s=a.dataset.service;$('#service').value=s.includes('E-commerce')?'E-commerce / product catalogue':s.includes('Portfolio')?'Portfolio website':s.includes('Landing')?'Landing page':s.includes('redesign')?'Website redesign / improvements':'Business website';if(!$('#details').value)$('#details').value='I am interested in: '+s+'. Please discuss the options with me.'}));
+$$('[data-package]').forEach(a=>a.addEventListener('click',()=>{if(!$('#details').value)$('#details').value='I am interested in the '+a.dataset.package+' package. Please confirm scope and final price.'}));
+$('#contactForm').addEventListener('submit',e=>{e.preventDefault();if(!e.currentTarget.reportValidity())return;let d=new FormData(e.currentTarget);let msg=['Hello BILVEX WEB STUDIO, I would like to discuss a website project.','',`Name: ${d.get('name')}`,`Business / brand: ${d.get('business')||'Not provided'}`,`My WhatsApp: ${d.get('phone')||'Not provided'}`,`Service: ${d.get('service')}`,`Budget: ${d.get('budget')}`,`Timeline: ${d.get('timeline')}`,`Project details: ${d.get('details')}`].join('\n');window.open('https://wa.me/919061200762?text='+encodeURIComponent(msg),'_blank','noopener,noreferrer')});
+const top=$('#backTop'),progress=$('#progress');function scroll(){let max=document.documentElement.scrollHeight-innerHeight;progress.style.width=(max>0?scrollY/max*100:0)+'%';top.classList.toggle('show',scrollY>450)}addEventListener('scroll',scroll,{passive:true});scroll();top.addEventListener('click',()=>scrollTo({top:0,behavior:'smooth'}));
+const items=$$('.reveal');if('IntersectionObserver'in window&&!matchMedia('(prefers-reduced-motion: reduce)').matches){let ob=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('visible');ob.unobserve(e.target)}}),{threshold:.12});items.forEach(el=>ob.observe(el))}else items.forEach(el=>el.classList.add('visible'));
+const c=$('#rain'),ctx=c.getContext&&c.getContext('2d'),reduced=matchMedia('(prefers-reduced-motion: reduce)').matches;let w=0,h=0,drops=[],raf=0,running=false;
+function resize(){if(!ctx)return;let dpr=Math.min(devicePixelRatio||1,1.5);w=innerWidth;h=innerHeight;c.width=w*dpr;c.height=h*dpr;c.style.width=w+'px';c.style.height=h+'px';ctx.setTransform(dpr,0,0,dpr,0,0);drops=Array.from({length:Math.min(85,Math.floor(w*.11))},()=>({x:Math.random()*w,y:Math.random()*h,l:8+Math.random()*15,s:2+Math.random()*3,a:.08+Math.random()*.17}))}
+function draw(){if(!ctx||reduced||document.hidden){running=false;return}running=true;ctx.clearRect(0,0,w,h);drops.forEach(d=>{ctx.beginPath();ctx.moveTo(d.x,d.y);ctx.lineTo(d.x-1.5,d.y+d.l);ctx.strokeStyle=`rgba(145,230,190,${d.a})`;ctx.stroke();d.x-=.5;d.y+=d.s;if(d.y>h+d.l){d.y=-d.l;d.x=Math.random()*w}if(d.x<0)d.x=w});raf=requestAnimationFrame(draw)}
+if(ctx&&!reduced){resize();draw();addEventListener('resize',resize);document.addEventListener('visibilitychange',()=>{if(document.hidden){cancelAnimationFrame(raf);running=false}else if(!running)draw()})}
+})();
 </script>
-
-</body>
-</html>
+</body></html>
