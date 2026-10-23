@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://muhammedrashidkprashidkp578-sys.github.io/BILVEX_WEB_STUDIO/sitemap.xml
